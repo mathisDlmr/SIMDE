@@ -156,11 +156,11 @@ Il peut arriver que certains problèmes surviennent lors du déploiement de votr
 Cela peut être dûe à des mauvaises config de .htaccess ou de mauvaise version d'interpréteur sur les machines.
 Dans ces deux cas (et probablement dans d'autres), vous ne pourrez pas faire grand chose et vous allez devoir [contacter le SIMDE](mailto:simde@assos.utc.fr).
 
-#### Problématique des dépendances
+### Problématique des dépendances
 
 Étant donné l'impossibilité d'utiliser `composer` directement sur le serveur, plusieurs stratégies sont recommandées :
 
-### Solution recommandée : GitHub Actions
+#### Solution recommandée : GitHub Actions
 
 La meilleure pratique consiste à automatiser le build et le déploiement via GitHub Actions.
 
@@ -180,7 +180,7 @@ Cette implémentation se base sur 2 composantes :
   - Un fichier deploy.sh qui gère le déploiement (nécessite la [création d'un PAT Github](https://github.com/settings/personal-access-tokens))
   - Un dossier tmp pour extraire l'artifact avant de synchroniser les changements avec la prod
 
-### Déploiement manuel
+#### Déploiement manuel
 
 Si vous ne pouvez pas utiliser GitHub Actions :
 
@@ -192,9 +192,9 @@ Si vous ne pouvez pas utiliser GitHub Actions :
 2. **Téléversement SFTP :**
    - Téléverser tous les fichiers incluant le dossier `vendor`
 
-## Exécution de code PHP sur le serveur
+### Exécution de code PHP sur le serveur
 
-### Méthode 1 : Routes d'administration
+#### Méthode 1 : Routes d'administration
 
 Créer des routes spécifiques dans votre application pour exécuter du code :
 
@@ -206,7 +206,7 @@ Route::get('/admin/migrate', function() {
 });
 ```
 
-### Méthode 2 : Scripts à la racine
+#### Méthode 2 : Scripts à la racine
 
 1. Placer un fichier `.php` ou `.sh` à la racine de votre application
 2. L'exécuter via URL : `https://asso.etc.fr/[association]/script.php`
