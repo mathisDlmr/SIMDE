@@ -13,7 +13,7 @@ _Cette ressource a pris pour parti de se concentrer essentiellement sur les serv
 
 Le SIMDE propose à chaque association un espace informatique sur la machine **files.mde.etc**. Pour modifier les fichiers sur son espace, chaque association possède un accès SFTP et SSH à la machine (accès bien évidemment restreint aux dossiers de l'association).
 Les fichiers sont ensuites récupérés par un Apache qui sert les fichiers statiques et les applications web.
-⚠️ **Attention** : Apache est très adapté pour servir du HTML/CSS/JS/PHP mais n'est pas adapté au Node.js et python. Si vous prévoyez d'utiliser un de ces deux langages, nous vous conseillons vivement de containeriser votre projet
+⚠️ **Attention** : Apache est très adapté pour servir du HTML/CSS/JS/PHP mais n'est pas adapté au Node.js et python. Si vous prévoyez d'utiliser un de ces deux langages, nous vous conseillons vivement de containeriser votre projet (cas particulier pour le node statique qui peut être exporté).
 
 Si besoin, le SIMDE peut également héberger des applications containerisés via Docker, mais cela nécessite une demande spécifique.
 ⚠️ **Attention** : La configuration du container ne revient pas au SIMDE, mais bien à l'association qui en fait la demande.
@@ -355,16 +355,16 @@ _Exemple :_
 
 #### Retour de read-assos-history
 
-Ajoute un champ "read-assos-history", clé d'un array contenant toutes les associations auxquelles l'utilisateur.ice a été accepté.e depuis le début.
-
-_Exemple :_
-```
-  "read-assos-history"=>["picasso","simde","skiutc", "nasa"]
-```
+**Ce scope ne fonctionne pas pour l'instant**
 
 #### Retour de read-memberships
 
-Aucune idée....
+Ajoute un champ "read-memberships", clé d'un booléen informant de si l'utilisateur.ice est cotisant.e
+
+_Exemple :_
+```
+  "read-memberships"=>true
+```
 
 ### Implémentation
 
